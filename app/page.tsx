@@ -1,3 +1,9 @@
+import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { AuthControls } from "@/app/components/auth-controls";
+import { authOptions } from "@/lib/auth";
+
 const modules = ["발전계획", "경영정보", "경쟁력분석", "고등교육통계", "교육단위통계", "부서별 통계"];
 
 const kpis = [
@@ -70,12 +76,18 @@ function ProgressBar({ value, color }: { value: number; color: string }) {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  if (!session?.user?.email) {
+    redirect("/login");
+  }
+
   return (
     <div className="bi-app" id="dashboard">
       <header className="app-header">
         <a className="brand" href="#dashboard" aria-label="상명대학교 통계분석 홈">
-          <span className="brand-mark" aria-hidden="true"><span>상</span><span>명</span></span>
+          <Image className="brand-mark" src="/sangmyung-logo.svg" alt="" width={768} height={1024} />
           <span className="brand-name"><strong>상명대학교</strong><small>UNIVERSITY INSIGHT</small></span>
         </a>
         <nav className="top-nav" aria-label="주요 메뉴">
@@ -85,7 +97,7 @@ export default function Home() {
         <div className="header-meta">
           <span className="term-chip"><i /> 2026학년도 2학기</span>
           <span className="week-label">9월 4주차</span>
-          <button className="avatar" type="button" aria-label="사용자 메뉴">SM</button>
+          <AuthControls name={session.user.name ?? "사용자"} email={session.user.email} />
         </div>
       </header>
 

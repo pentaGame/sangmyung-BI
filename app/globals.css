@@ -932,22 +932,12 @@ body {
 }
 
 .brand-mark {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
+  display: block;
+  flex: none;
+  width: 34px;
+  height: 45px;
   border: 0;
-  border-radius: 7px;
-  background: #2857a0;
-  color: #fff;
-  font-size: 13px;
-}
-
-.brand-mark span + span {
-  padding-left: 3px;
-  border-left: 1px solid #ffffff70;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -1048,6 +1038,111 @@ body {
   cursor: pointer;
   font-size: 10px;
   font-weight: 700;
+}
+
+.auth-controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-user {
+  max-width: 145px;
+  overflow: hidden;
+  color: #66645f;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-signout {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid #dedbd4;
+  border-radius: 4px;
+  background: #fff;
+  color: #514f49;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.auth-signout:hover { background: #f4f2ed; }
+
+.login-shell {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 36px 20px;
+  background-color: #f2f1ed;
+  background-image: linear-gradient(#e9e7e0 1px, transparent 1px), linear-gradient(90deg, #e9e7e0 1px, transparent 1px);
+  background-position: center;
+  background-size: 48px 48px;
+}
+
+.login-panel {
+  width: min(100%, 440px);
+  padding: 36px;
+  border: 1px solid #dfddd6;
+  border-top: 4px solid #2857a0;
+  background: #fff;
+  box-shadow: 0 18px 50px #24232112;
+}
+
+.login-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.login-brand-mark {
+  display: block;
+  flex: none;
+  width: 34px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.login-brand > span:last-child { display: grid; gap: 2px; }
+.login-brand strong { color: #292a28; font-size: 16px; }
+.login-brand small { color: #898780; font-family: Georgia, serif; font-size: 9px; }
+
+.login-copy { margin: 48px 0 28px; }
+.login-eyebrow { margin: 0 0 8px; color: #32897c; font-size: 10px; font-weight: 800; }
+.login-copy h1 { margin: 0; color: #292a28; font-family: Georgia, "Malgun Gothic", serif; font-size: 27px; }
+.login-copy > p:last-child { margin: 10px 0 0; color: #77746d; font-size: 13px; }
+
+.google-signin {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #d8d7d2;
+  border-radius: 4px;
+  background: #fff;
+  color: #34332f;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.google-signin:hover { border-color: #a7b8d2; background: #f8faff; }
+.google-signin span { color: #4285f4; font-family: Arial, sans-serif; font-size: 18px; font-weight: 800; }
+.login-notice { margin: 18px 0 0; color: #77746d; font-size: 11px; line-height: 1.6; text-align: center; }
+.login-notice strong { color: #2857a0; }
+.login-footer { color: #85827a; font-size: 10px; }
+
+@media (max-width: 600px) {
+  .auth-user { display: none; }
+  .login-panel { padding: 28px 22px; }
+  .login-copy { margin-top: 38px; }
 }
 
 .dashboard-grid {
@@ -1576,7 +1671,7 @@ body {
 }
 
 @media (max-width: 390px) {
-  .brand-mark { width: 32px; height: 32px; }
+  .brand-mark { width: 32px; height: 43px; }
   .brand-name strong { font-size: 13px; }
   .brand-name small { font-size: 7px; }
   .term-chip { padding: 0 5px; font-size: 8px; }

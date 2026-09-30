@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Google OAuth Setup
+
+1. In Google Cloud Console, configure the OAuth consent screen and create an OAuth client ID for a Web application.
+2. Add `http://localhost:3000` as an authorized JavaScript origin and `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI. Add the production origin and callback URI when deploying.
+3. Copy `.env.example` to `.env.local`, then set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` from the OAuth client. Generate `NEXTAUTH_SECRET` with `openssl rand -base64 32`.
+4. Start the app with `npm run dev` and sign in with a verified `@smu.ac.kr` Google account.
+
+The OAuth callback rejects accounts unless Google confirms the email is verified and its domain is exactly `smu.ac.kr`. Sessions use JWTs, so no database is required for this initial setup. Google Workspace administrators may need to allow the OAuth app for school accounts.
+
 ## Getting Started
 
 First, run the development server:
