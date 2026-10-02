@@ -88,7 +88,7 @@ export default async function Home() {
       <header className="app-header">
         <a className="brand" href="#dashboard" aria-label="상명대학교 통계분석 홈">
           <Image className="brand-mark" src="/sangmyung-logo.svg" alt="" width={768} height={1024} />
-          <span className="brand-name"><strong>상명대학교</strong><small>UNIVERSITY INSIGHT</small></span>
+          <span className="brand-name"><strong>상명대학교</strong><small>Sangmyung University</small></span>
         </a>
         <nav className="top-nav" aria-label="주요 메뉴">
           <a className="nav-active" href="#dashboard">대시보드</a>

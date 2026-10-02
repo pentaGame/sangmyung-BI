@@ -17,17 +17,17 @@ export default async function LoginPage() {
       <section className="login-panel" aria-labelledby="login-title">
         <Link className="login-brand" href="/" aria-label="상명대학교 홈">
           <Image className="login-brand-mark" src="/sangmyung-logo.svg" alt="" width={768} height={1024} />
-          <span><strong>상명대학교</strong><small>UNIVERSITY INSIGHT</small></span>
+          <span><strong>상명대학교</strong><small>Sangmyung University</small></span>
         </Link>
         <div className="login-copy">
-          <p className="login-eyebrow">UNIVERSITY INSIGHT</p>
+          <p className="login-eyebrow">Sangmyung University</p>
           <h1 id="login-title">통계분석 시스템</h1>
           <p>상명대학교 계정으로 로그인해 주세요.</p>
         </div>
         <GoogleSignInButton />
         <p className="login-notice">인증된 <strong>@smu.ac.kr</strong> 계정만 이용할 수 있습니다.</p>
       </section>
-      <footer className="login-footer">상명대학교 · University Insight</footer>
+      <footer className="login-footer">상명대학교 · Sangmyung University</footer>
     </main>
   );
 }
